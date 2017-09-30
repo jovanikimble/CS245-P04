@@ -1,4 +1,3 @@
-
 public class Practice4Test {
 	
 	protected Queue queue;

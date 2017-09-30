@@ -1,4 +1,3 @@
-
 public class ArrayStack implements Stack {
 	
 	private int top;
