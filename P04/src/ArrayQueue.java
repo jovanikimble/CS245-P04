@@ -1,3 +1,8 @@
+/**
+ * Array Based implementation of a Queue
+ * @author jovanikimble
+ *
+ */
 public class ArrayQueue implements Queue {
 	
 	private int head;
@@ -10,6 +15,10 @@ public class ArrayQueue implements Queue {
 		this.arr = new Object[5];
 	}
 
+	/* 
+	 * Returns the element at the head of
+	 * the array
+	 */
 	@Override
 	public Object dequeue() {
 		if(this.head == this.tail) {
@@ -21,6 +30,9 @@ public class ArrayQueue implements Queue {
 		return item;
 	}
 
+	/* 
+	 * Inserts element at the tail, end of Queue
+	 */
 	@Override
 	public void enqueue(Object item) {
 		if((this.tail + 1) % this.arr.length == this.head) {
@@ -29,18 +41,18 @@ public class ArrayQueue implements Queue {
 		this.arr[this.tail] = item;
 		this.tail = (tail + 1) % this.arr.length;
 	}
-	
-	public void print() {
-		for(int i = 0; i < this.arr.length; i++) {
-			System.out.print(this.arr[i] + " ");
-		}
-	}
 
+	/* 
+	 * Returns whether or not Queue is empty
+	 */
 	@Override
 	public boolean empty() {
 		return this.head == this.tail;
 	}
 	
+	/**
+	 * Grows Queue to double of previous size;
+	 */
 	private void growQueue() {
 		Object[] tempArr = new Object[this.arr.length * 2];
 		
@@ -50,6 +62,9 @@ public class ArrayQueue implements Queue {
 		}
 		
 		this.arr = tempArr;
+		
+		// Updating head and tail to it's positions
+		// in the larger array
 		this.head = 0;
 		this.tail = n - 1;
 	}

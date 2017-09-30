@@ -1,3 +1,8 @@
+/**
+ * Array Based implementation of a Stack
+ * @author jovanikimble
+ *
+ */
 public class ArrayStack implements Stack {
 	
 	private int top;
@@ -8,6 +13,9 @@ public class ArrayStack implements Stack {
 		this.arr = new Object[10];
 	}
 	
+	/* 
+	 * Pushes(adds) Object to the top of the stack
+	 */
 	@Override
 	public void push(Object item) {
 		if (this.top == this.arr.length) {
@@ -18,6 +26,9 @@ public class ArrayStack implements Stack {
 
 	}
 
+	/* 
+	 * Returns item from the top of the Stack
+	 */
 	@Override
 	public Object pop() {
 		if (this.top > 0) {
@@ -27,6 +38,9 @@ public class ArrayStack implements Stack {
 		}
 	}
 
+	/* 
+	 * Returns a copy of the top of the Stack
+	 */
 	@Override
 	public Object peek() {
 		if(this.top > 0) {
@@ -35,11 +49,18 @@ public class ArrayStack implements Stack {
 		return null;
 	}
 
+	/* 
+	 * Returns whether the Stack is empty
+	 */
 	@Override
 	public boolean empty() {
 		return this.top == 0;
 	}
 	
+	/**
+	 * Grows the stack to double the size of the
+	 * previous stack
+	 */
 	public void growStack() {
 		Object[] tempArr = new Object[this.arr.length * 2];
 		
