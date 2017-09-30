@@ -25,6 +25,7 @@ public class Practice4Test {
 	
 	
 	public boolean isPalindrome(String item) {
+		item = item.toLowerCase().replaceAll("[^a-zA-Z0-9_]", "");
 		clearData();
 		for (int i = 0; i < item.length(); i++) {
 			stack.push(item.substring(i, i+1));
@@ -90,7 +91,7 @@ public class Practice4Test {
 				queue.dequeue();
 				stack.pop();
 			}
-			if (queue.empty() && stack.empty() && ! emptiedEarly) {
+			if (queue.empty() && stack.empty() && !emptiedEarly) {
 				System.out.println("[+10%] Stack and Queue appear to resize correctly.");
 				grade += 10;
 			} else {
